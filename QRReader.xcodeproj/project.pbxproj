@@ -12,6 +12,7 @@
 		7EE588791E3B350A003C4327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE588771E3B350A003C4327 /* Main.storyboard */; };
 		7EE5887B1E3B350A003C4327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5887A1E3B350A003C4327 /* Assets.xcassets */; };
 		7EE5887E1E3B350A003C4327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5887C1E3B350A003C4327 /* LaunchScreen.storyboard */; };
+		7EE588861E3B42F1003C4327 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE588851E3B42F1003C4327 /* MessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7EE5887A1E3B350A003C4327 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EE5887D1E3B350A003C4327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EE5887F1E3B350A003C4327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EE588851E3B42F1003C4327 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7EE588731E3B350A003C4327 /* AppDelegate.swift */,
 				7EE588751E3B350A003C4327 /* ViewController.swift */,
+				7EE588851E3B42F1003C4327 /* MessageViewController.swift */,
 				7EE588771E3B350A003C4327 /* Main.storyboard */,
 				7EE5887A1E3B350A003C4327 /* Assets.xcassets */,
 				7EE5887C1E3B350A003C4327 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EE588761E3B350A003C4327 /* ViewController.swift in Sources */,
+				7EE588861E3B42F1003C4327 /* MessageViewController.swift in Sources */,
 				7EE588741E3B350A003C4327 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
