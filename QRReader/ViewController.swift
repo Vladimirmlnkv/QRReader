@@ -8,16 +8,18 @@
 
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     var qrCodeFrameView: UIView!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var captureSession: AVCaptureSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let captureSession = AVCaptureSession()
+        captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         captureSession.startRunning()
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -50,6 +52,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         view.bringSubview(toFront: qrCodeFrameView!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        captureSession.startRunning()
+    }
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.isEmpty {
             qrCodeFrameView?.frame = CGRect.zero
@@ -59,6 +66,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if metadataObj.type == AVMetadataObjectTypeQRCode {
+            captureSession.stopRunning()
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            
             let barCodeObject = previewLayer.transformedMetadataObject(for: metadataObj) as! AVMetadataMachineReadableCodeObject
             qrCodeFrameView?.frame = barCodeObject.bounds
             
