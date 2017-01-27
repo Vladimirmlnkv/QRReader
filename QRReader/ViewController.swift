@@ -19,6 +19,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+        
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         captureSession.startRunning()
@@ -54,6 +56,10 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        captureSession.startRunning()
+    }
+    
+    func willEnterForeground() {
         captureSession.startRunning()
     }
     
